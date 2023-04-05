@@ -1,12 +1,20 @@
-// import logo from './logo.svg';
+// @ts-nocheck
 import './App.css';
-import Home from './Components/Home/Home';
-let data =require("../src/Data/data.json");
+import { Routes, Route } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import TourDetails from "./Components/TourDetails/TourDetails";
+import Navbar from './Components/Navbar/Navbar';
+let data = require("../src/Data/data.json");
+
 function App() {
   return (
-    <div className="App">
-      <Home data ={data}/>
-    </div>
+    <>
+    <Navbar/>
+      <Routes>
+          <Route path="/" element={<Home data={data} />} />
+          <Route path="/city/:id" element={<TourDetails />} />
+      </Routes>
+    </>
   );
 }
 
